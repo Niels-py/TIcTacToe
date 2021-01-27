@@ -1,17 +1,23 @@
+# some variables
+
 list = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 player = "X"
 run = True
 
-def feld():
+
+# printing the field
+def field():
     print(f"{list[0]} | {list[1]} | {list[2]}")
     print("---------")
     print(f"{list[3]} | {list[4]} | {list[5]}")
     print("---------")
     print(f"{list[6]} | {list[7]} | {list[8]}")
 
+
+# convert input
 def eingabe():
     while True:
-        x = input("Auf welches Feld willst du setzen? ")
+        x = input("Which position do you want to set on? ")
         if x == "1" and list[0] == " ":
             list[0] = player
             break
@@ -46,8 +52,9 @@ def eingabe():
             print("---------")
             print("7 | 8 | 9")
 
-def winner():
 
+# is there a winner already
+def winner():
     if list[0] == list[1] == list[2] == "X" or list[0] == list[1] == list[2] == "O":
         return False
     elif list[3] == list[4] == list[5] == "X" or list[3] == list[4] == list[5] == "O":
@@ -68,8 +75,9 @@ def winner():
         return True
 
 
+# main program
 while run:
-    feld()
+    field()
     eingabe()
     if player == "X":
         player = "O"
